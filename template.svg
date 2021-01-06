@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="841mm"
+   height="1189mm"
+   viewBox="0 0 841 1189"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="template.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient1533"
+       inkscape:collect="always">
+      <stop
+         id="stop1529"
+         offset="0"
+         style="stop-color:#00a1df;stop-opacity:1" />
+      <stop
+         style="stop-color:#003088;stop-opacity:1"
+         offset="0.17502469"
+         id="stop881" />
+      <stop
+         id="stop883"
+         offset="0.31548646"
+         style="stop-color:#003088;stop-opacity:1" />
+      <stop
+         id="stop1531"
+         offset="1"
+         style="stop-color:#fffff8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1373-6">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop1369" />
+      <stop
+         style="stop-color:#00a1df;stop-opacity:1"
+         offset="1"
+         id="stop1371" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1373-6"
+       id="linearGradient1375"
+       x1="130.36411"
+       y1="138.09624"
+       x2="450.14526"
+       y2="288.83627"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1533"
+       id="linearGradient1522"
+       gradientUnits="userSpaceOnUse"
+       x1="-1714.0946"
+       y1="3012.1956"
+       x2="2062.1255"
+       y2="1063.5464"
+       gradientTransform="matrix(0.36011509,0,0,0.36328034,-1169.6874,12.916624)" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath47">
+      <rect
+         id="rect49"
+         width="213.28107"
+         height="52.919361"
+         x="895.88739"
+         y="-124.3624"
+         style="stroke-width:0.26458332" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.38796984"
+     inkscape:cx="1627.6783"
+     inkscape:cy="2743.1962"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     inkscape:window-width="1912"
+     inkscape:window-height="1033"
+     inkscape:window-x="1922"
+     inkscape:window-y="43"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="background">
+    <rect
+       style="opacity:1;fill:url(#linearGradient1522);fill-opacity:1;stroke:none;stroke-width:3.0963304;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1520"
+       width="1188.8041"
+       height="842.55981"
+       x="-1188.6038"
+       y="-0.03999358"
+       transform="rotate(-90)" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1535"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
+         id="flowRegion1537"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans'"><rect
+           id="rect1539"
+           width="2488.5715"
+           height="488.57144"
+           x="497.14285"
+           y="19.572683"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans'" /></flowRegion><flowPara
+         id="flowPara1541" /></flowRoot>  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="tiles" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,892)"
+     style="display:inline" />
+</svg>
