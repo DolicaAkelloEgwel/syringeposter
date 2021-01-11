@@ -4,37 +4,47 @@
   \usetheme{Rochester}
   }
 
-\usepackage[orientation=landscape,size=a1,scale=1.75,debug]{beamerposter}
+\usepackage[orientation=landscape,size=a1,scale=1.6,debug]{beamerposter}
 \usepackage{lipsum} % for dummy text
+\usepackage{tcolorbox}
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
 
-\title[]{\huge Syringe Pump for Electrochemical Cell}
+\title[]{\huge\bfseries Syringe Pump for Electrochemical Cell}
 \author[]{\large \textbf{Dolica Akello-Egwel} \and Gary Yendell}
 % \institute[]{\Large Dept of XYZ, ABC Institute}
 \date{}
 
 \begin{document}
 
+\newtcolorbox{custombox}[1]
+{
+  colback=blue!20!white,
+  arc=2mm,
+  % boxsep=5mm,
+  colframe=blue!70!black,
+  top=3mm,
+  toptitle=3mm,
+  bottomtitle=3mm,
+  fonttitle=\Large\bfseries,
+  coltitle=white,
+  title=#1,
+  % parbox=false,
+}
+
 \begin{frame}
 \maketitle
 \begin{columns}[t]
   \begin{column}{.32\linewidth}
  
-  \begin{block}{Introduction}
-  \lipsum[1]
-  \end{block}     
-
-  \begin{block}{Some heading}
-  \lipsum[1]
-  \end{block}
+  \begin{custombox}{Introduction}
+      Section about something important.
+  \end{custombox}
   
-  \begin{block}{Some heading}
-  \lipsum[1]
-  \end{block}
-  
-  
+  \begin{custombox}{Remote Working}
+      Section about something important.
+  \end{custombox}
   \end{column}
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
