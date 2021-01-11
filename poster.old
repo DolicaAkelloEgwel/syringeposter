@@ -1,0 +1,143 @@
+\documentclass[usenames,dvipsnames]{beamer} 
+
+\usepackage[orientation=portrait,scale=1.15,size=a0]{beamerposter} 
+% \usepackage{svg}
+% \usepackage{tcolorbox}
+% \usepackage{background}
+% \usepackage{lipsum}  
+% \usepackage{tgheros}
+% \usepackage{minted}
+% \usepackage{anyfontsize}
+% \usepackage{dirtree}
+% \usepackage{graphbox}
+% \usepackage{forest}
+% \usepackage{wrapfig}
+% \tcbuselibrary{skins}
+% \usepackage{tgbonum}
+% \usepackage{textcomp}
+
+
+\usebackgroundtemplate{\includesvg[height=\paperheight]{template}}%
+\setbeamercolor{title}{fg=white} 
+\setbeamercolor{author}{fg=white} 
+\setbeamercolor{institute}{fg=white} 
+\setbeamercolor{date}{fg=red}
+\newcommand\myicon[1]{{\color{#1}\rule{2ex}{2ex}}}
+
+\colorlet{titlecolour}{blue!20!black}
+
+% If you have actual icon images, use \includegraphics to include them
+% If you are generating them, put in the appropriate code for them here
+% now we make a command for a folder/file which inserts the icon and its label
+% adjust this as needed. If you only have 2 icons, then you could create
+% a \myfile and \myfolder command with the icon fixed.
+\newcommand{\myfolder}[1]{\begin{tabular}{cc}\includegraphics[align=c,height=35pt]{foldericon} & {#1}\end{tabular}}
+\newcommand{\myfile}[1]{\begin{tabular}{cc}\includegraphics[align=c,height=35pt]{fileicon} & {#1}\end{tabular}}
+\newcommand{\mysubtitle}[1]{\vspace{-25pt}\begin{center}\color{blue}{\fontsize{30}{1}\textbf{#1}}\end{center}\vspace{-20pt}}
+    \newcommand{\myimagebox}[2]{\begin{tcolorbox}[enhanced,width=\linewidth,height={#2},arc=5mm,
+       interior style={fill overzoom image*={}{#1}}]
+    \end{tcolorbox}}
+
+
+% Poster title
+\title{\fontsize{105}{1}\textbf{The NeXus Constructor} \\[5pt] \Large https://github.com/ess-dmsc/nexus-constructor \\[25pt]}
+\subtitle{\fontsize{50}{1}\textbf{Defining, Storing, and Visualising Instrument Geometry}\vspace{-15pt}}
+\author{\large \textbf{Dolica Akello-Egwel\inst{1}}, Jack Harper\inst{1}, Matthew Jones\inst{2}, Dominic Oram\inst{1}, Jonas Nilsson\inst{3}, Tobias Richter\inst{3} }
+\institute{\normalsize   
+\inst{1} ISIS Facility, Rutherford Appleton Laboratory, Didcot, Oxfordshire, UK, \,
+\inst{2} Tessella, Abingdon, Oxfordshire, UK, \,
+\inst{3} European Spallation Source, Lund, Scania, Sweden \\
+}
+
+% Remove Date
+\date{}
+
+% Remove Beamer Navigation Symbols
+\setbeamercolor*{frametitle}{bg=}
+\setbeamertemplate{navigation symbols}{}
+
+% Custom Tcolorbox
+\newtcolorbox{custombox}[1]
+{
+  colback=white,
+  arc=5mm,
+  % boxsep=5mm,
+  colframe=white,
+  top=3mm,
+  toptitle=3mm,
+  bottomtitle=3mm,
+  coltitle=blue!20!black,
+  fonttitle=\LARGE\bfseries,
+  coltitle=blue,
+  title=#1,
+  % parbox=false,
+}
+
+% Spacing after the text boxes
+\AfterEndEnvironment{custombox}{\vspace{0.8cm}}
+\AfterEndEnvironment{tcolorbox}{\vspace{0.8cm}}
+
+\tcbset{before upper=\setlength{\parskip}{1em}}
+
+\begin{document}
+
+\begin{frame}[t]
+
+\vspace{15pt}  
+\maketitle
+
+% Shrink gap between title and main poster content
+% \vspace{-200pt}
+
+\textcolor{white}{\rule{\textwidth}{6pt}}
+\begin{columns}[t]  
+
+
+%%%%%%%%%%% Start of Column 1 %%%%%%%%%%
+
+\begin{column}{0.32\paperwidth}
+\vspace{-10pt}
+
+\begin{custombox}{Introduction}
+\end{custombox}
+
+\begin{custombox}{Neutron Experiments}
+\end{custombox}
+
+\vspace{-40pt}
+
+\begin{custombox}{The NeXus Standard}
+\end{custombox}
+
+\end{column}   
+%%%%%%%%%% End of Column 1 %%%%%%%%%%
+
+%%%%%%%%%% Start of Column 2 %%%%%%%%%%
+\begin{column}{0.32\paperwidth}
+\vspace{-10pt}
+
+\begin{custombox}{The NeXus Constructor}
+\end{custombox}
+
+\begin{custombox}{On GitHub}
+\end{custombox}
+
+\begin{custombox}{Technology}
+\end{custombox}
+
+\end{column}
+%%%%%%%%%% End of Column 2 %%%%%%%%%%  
+\begin{column}{0.32\paperwidth}
+\vspace{-10pt}
+
+\begin{custombox}{Qt for Python}
+\end{custombox}
+
+\begin{custombox}{Component Shape}
+\end{custombox}
+\vspace{-20pt}
+
+\end{column}
+\end{columns}
+\end{frame}
+\end{document}
