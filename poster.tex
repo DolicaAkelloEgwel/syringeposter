@@ -20,8 +20,8 @@
 
 \newtcolorbox{custombox}[1]
 {
-  colback=blue!20!white,
-  arc=2mm,
+  colback=blue!10!lightgray!35!white,
+  arc=1mm,
   % boxsep=5mm,
   colframe=blue!70!black,
   top=3mm,
@@ -32,6 +32,8 @@
   title=#1,
   % parbox=false,
 }
+
+\AfterEndEnvironment{custombox}{\vspace{0.8cm}}
 
 \begin{frame}
 \maketitle
