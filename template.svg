@@ -28,12 +28,12 @@
          style="stop-color:#00a1df;stop-opacity:1" />
       <stop
          style="stop-color:#003088;stop-opacity:1"
-         offset="0.17502469"
+         offset="0.08927052"
          id="stop881" />
       <stop
          id="stop883"
-         offset="0.31548646"
-         style="stop-color:#003088;stop-opacity:1" />
+         offset="0.18750915"
+         style="stop-color:#0030bb;stop-opacity:1" />
       <stop
          id="stop1531"
          offset="1"
@@ -65,10 +65,10 @@
        xlink:href="#linearGradient1533"
        id="linearGradient1522"
        gradientUnits="userSpaceOnUse"
-       x1="-1714.0946"
-       y1="3012.1956"
-       x2="1669.7078"
-       y2="1289.78"
+       x1="-540.13544"
+       y1="2546.5312"
+       x2="1941.8529"
+       y2="1029.0079"
        gradientTransform="matrix(0.25560197,0,0,0.51257748,-1178.3538,18.472169)" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -90,8 +90,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.19398492"
-     inkscape:cx="2028.694"
-     inkscape:cy="1811.2297"
+     inkscape:cx="1172.9574"
+     inkscape:cy="1398.8265"
      inkscape:document-units="mm"
      inkscape:current-layer="layer2"
      showgrid="false"
