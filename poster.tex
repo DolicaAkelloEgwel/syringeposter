@@ -5,10 +5,13 @@
   }
 
 \usepackage[orientation=landscape,size=a1,scale=1.6,debug]{beamerposter}
+\usepackage{background}
 \usepackage{lipsum} % for dummy text
 \usepackage{tcolorbox}
 \usepackage{helvet}
+\usepackage{svg}
 \renewcommand{\familydefault}{\sfdefault}
+\usebackgroundtemplate{\includesvg[width=\paperwidth]{template}}%
 
 
 \title[]{\huge\bfseries Syringe Pump for Electrochemical Cell}
@@ -91,7 +94,7 @@
   
   \begin{block}{Me}
   Miss \\ 
-  Software Engieer - 2018 Cohort
+  Software Engineer - 2018 Cohort
   \end{block}
   
   
