@@ -16,7 +16,7 @@
 \tcbuselibrary{skins}
 
 
-\title[]{\huge\bfseries Syringe Pump for Electrochemical Cell}
+\title[]{\Huge\bfseries Syringe Pump for Electrochemical Cell}
 \author[]{\large \textbf{Dolica Akello-Egwel\inst{1}} \and Gary Yendell\inst{2}}
 \institute{\normalsize   
 \inst{1} Science and Technology Facilities Council \,
@@ -47,19 +47,33 @@
 }
 
 \AfterEndEnvironment{custombox}{\vspace{0.8cm}}
+\AfterEndEnvironment{figure}{\vspace{0.8cm}}
 
 \begin{frame}
 \maketitle
 \begin{columns}[t]
   \begin{column}{.32\linewidth}
  
-  \begin{custombox}{Objectives}
-      Section about remote working setup.
+  \begin{custombox}{Motivation}
+      Scientist had messy, scary code that often failed.
   \end{custombox}
 
- \begin{tcolorbox}[enhanced,width=\linewidth,height=17.5cm,arc=1mm,
-       interior style={fill overzoom image*={}{images/camerasetup.jpg}}]
-\end{tcolorbox}
+  \begin{custombox}{Objectives}
+     \begin{itemize}
+        \item Make a Python library for controlling the Hamilton Microlab Syringe Pump 
+        \item Add EDM screens 
+        \item Add cycling ability. 
+    \end{itemize} 
+  \end{custombox}
+
+      \begin{figure}[t]
+          {%
+        \setlength{\fboxsep}{0pt}%
+        \setlength{\fboxrule}{3pt}%
+          \fbox{\includegraphics[width=0.7\linewidth]{images/camerasetup}}%
+        }%
+\centering
+      \end{figure}
 
   \begin{custombox}{Remote Working}
       Section about remote working setup.
@@ -72,15 +86,19 @@
   \begin{column}{.32\linewidth}
 
   \begin{custombox}{Python Library}
-      Section about something important.
+    Discuss the Python library. 
   \end{custombox}
   
-  \begin{custombox}{EPICS}
-      Section about something important.
+      \begin{custombox}{EPICS and \texttt{softioc}}
+          \begin{wrapfigure}{l}{0.3\textwidth}
+      \includegraphics[width=\linewidth]{images/epicslogo}
+          \end{wrapfigure}
+      The Experimental Physics and Industrial Control System (EPICS) comprises a set of software components and
+      tools that can be used to create distributed control systems. EPICS provides capabilities that are typically expected from a distributed control system:
   \end{custombox}
 
   \begin{custombox}{EDM Screens}
-      Section about something important.
+      Talk about the EDM screens.
   \end{custombox}
  
   \end{column}
@@ -90,11 +108,22 @@
 
   \begin{column}{.32\linewidth}
  
+      \begin{figure}[t]
+          {%
+        \setlength{\fboxsep}{0pt}%
+        \setlength{\fboxrule}{3pt}%
+          \fbox{\includegraphics[width=0.8\linewidth]{images/mainscreen.png}}%
+              \caption{EDM screen}
+        }%
+\centering
+\end{figure}
+
   \begin{custombox}{Further Work}
+      Simulations...
   \end{custombox}
 
   \begin{custombox}{About The Author}
-      Section about something important.
+      .
   \end{custombox}
   
   
