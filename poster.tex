@@ -46,16 +46,24 @@
   % parbox=false,
 }
 
-\AfterEndEnvironment{custombox}{\vspace{0.8cm}}
-\AfterEndEnvironment{figure}{\vspace{0.8cm}}
+\AfterEndEnvironment{custombox}{\vspace{0.6cm}}
+\AfterEndEnvironment{figure}{\vspace{0.6cm}}
 
 \begin{frame}
 \maketitle
 \begin{columns}[t]
   \begin{column}{.32\linewidth}
  
-  \begin{custombox}{Motivation}
-      Scientist had messy, scary code that often failed.
+  \begin{custombox}{Background}
+          \begin{figure}[h]
+      \includegraphics[width=0.4\linewidth]{images/syringediagram}
+          \end{figure}
+        \section{Experiment Motivation}
+      Experiment requiring continuous flows, often for hours at a time.
+          \textbf{Hamilton Microlab Syringe Pump}
+      The Hamilton Microlab Syringe 500/600 Syringe Pump may be used for experiments that involve continuous flows through a chemical cell. 
+          \textbf{Existing Script}
+      The existing script allowed simple commands, but did not provide an interface to handle complex commands involving multiple syringe moving simultaneously. Attempts at having the syringe pump run overnight were unsuccessful.
   \end{custombox}
 
   \begin{custombox}{Objectives}
@@ -63,6 +71,7 @@
         \item Make a Python library for controlling the Hamilton Microlab Syringe Pump 
         \item Add EDM screens 
         \item Add cycling ability. 
+        \item Interface with EPICS. 
     \end{itemize} 
   \end{custombox}
 
@@ -89,25 +98,6 @@
     Discuss the Python library. 
   \end{custombox}
   
-      \begin{custombox}{EPICS and \texttt{softioc}}
-          \begin{wrapfigure}{l}{0.3\textwidth}
-      \includegraphics[width=\linewidth]{images/epicslogo}
-          \end{wrapfigure}
-      The Experimental Physics and Industrial Control System (EPICS) comprises a set of software components and
-      tools that can be used to create distributed control systems. EPICS provides capabilities that are typically expected from a distributed control system:
-  \end{custombox}
-
-  \begin{custombox}{EDM Screens}
-      Talk about the EDM screens.
-  \end{custombox}
- 
-  \end{column}
-
-  
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-  \begin{column}{.32\linewidth}
- 
       \begin{figure}[t]
           {%
         \setlength{\fboxsep}{0pt}%
@@ -118,12 +108,38 @@
 \centering
 \end{figure}
 
-  \begin{custombox}{Further Work}
-      Simulations...
+  \end{column}
+
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \begin{column}{.32\linewidth}
+
+      \begin{custombox}{EPICS and \texttt{softioc}}
+          \begin{wrapfigure}{r}{0.3\textwidth}
+      \includegraphics[width=\linewidth]{images/epicslogo}
+          \end{wrapfigure}
+      The Experimental Physics and Industrial Control System (EPICS) comprises a set of software components and
+      tools that can be used to create distributed control systems. EPICS provides capabilities that are typically expected from a distributed control system:
+  \end{custombox}
+
+ 
+  \begin{custombox}{Final Thoughts}
+      \textbf{Results} 
+    \begin{itemize}
+        \item Permanent "Syringe Error" message 
+        \item Behaviour of syringe movement indicator arrows not ideal, especially for fast movements 
+    \end{itemize}
+
+      \textbf{Further Work }
+    \begin{itemize}
+        \item Develop a simulator for the syringe pump and use it to create system tests
+        \item Add a cleaning command 
+    \end{itemize}
   \end{custombox}
 
   \begin{custombox}{About The Author}
-      .
+      \lipsum[1-2]
   \end{custombox}
   
   
