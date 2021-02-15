@@ -19,7 +19,7 @@
 
 
 \title[]{\Huge\bfseries Syringe Pump for Electrochemical Cell}
-\author[]{\large \textbf{Dolica Akello-Egwel} \\ \and Gary Yendell}
+\author[]{\large \textbf{Dolica Akello-Egwel} / 2018 Cohort / Mantid Team}
 \date{}
 
 % Remove Beamer Navigation Symbols
@@ -53,13 +53,19 @@
   \begin{column}{.32\linewidth}
  
   \begin{custombox}{Introduction}
+      The existing streamDevice-based EPICS driver for the Hamilton Microlab 500/600 Syringe Pump was not
+      especially suited to sending "complex" commands that contain two or more instructions.
+      The driver also lacked the ability to reliably send simultaneous commands to both syringes, and to
+      cycle sets of simultaneous commands indefinetly. The aim of this project was to create a user-friendly
+      and extensible Python API that allows users to easily create continuous flows through an electrochemical
+      cell.
   \end{custombox}
 
   \begin{custombox}{Objectives}
      \begin{itemize}
         \item Make a Python library for controlling the Hamilton Microlab Syringe Pump 
         \item Add EDM screens 
-        \item Add cycling ability. 
+        \item Add a cycling ability to allow 
         \item Interface with EPICS. 
     \end{itemize} 
   \end{custombox}
@@ -73,9 +79,6 @@
 % \centering
       \end{figure}
 
-  \begin{custombox}{Remote Working}
-      Section about remote working setup.
-  \end{custombox}
   \end{column}
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,7 +86,7 @@
 
   \begin{column}{.32\linewidth}
 
-  \begin{custombox}{Python Library}
+  \begin{custombox}{Implementation}
     Discuss the Python library. 
   \end{custombox}
   
