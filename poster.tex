@@ -11,12 +11,12 @@
 \usepackage{tcolorbox}
 % \usepackage{helvet}
 \usepackage{svg}
-% \renewcommand{\familydefault}{\sfdefault}
 \usepackage{fontspec}
 \setsansfont{Avenir LT Std}
 \usebackgroundtemplate{\includesvg[width=\paperwidth]{template}}%
 \tcbuselibrary{skins}
 
+\useinnertheme{rectangles}
 
 \title[]{\Huge\bfseries Syringe Pump for Electrochemical Cell}
 \author[]{\large \textbf{Dolica Akello-Egwel} \and Gary Yendell \\ 2018 Cohort / Mantid Team}
@@ -44,6 +44,7 @@
   % parbox=false,
 }
 
+
 \AfterEndEnvironment{custombox}{\vspace{0.6cm}}
 \AfterEndEnvironment{figure}{\vspace{0.6cm}}
 
@@ -51,7 +52,7 @@
 \maketitle
 \begin{columns}[t]
   \begin{column}{.32\linewidth}
- 
+
   \begin{custombox}{Introduction}
       The existing streamDevice-based EPICS driver for the Hamilton Microlab 500/600 Syringe Pump was not
       especially suited to sending "complex" commands that contain two or more instructions.
@@ -63,11 +64,11 @@
 
   \begin{custombox}{Objectives}
      \begin{itemize}
-        \item Make a Python library for controlling the Hamilton Microlab Syringe Pump 
-        \item Add EDM screens 
-        \item Add a cycling ability to allow 
-        \item Interface with EPICS. 
-    \end{itemize} 
+        \item Make a Python library for controlling the Hamilton Microlab Syringe Pump
+        \item Add EDM screens
+        \item Add a cycling ability to allow
+        \item Interface with EPICS.
+    \end{itemize}
   \end{custombox}
 
       \begin{figure}[t]
@@ -87,9 +88,9 @@
   \begin{column}{.32\linewidth}
 
   \begin{custombox}{Implementation}
-    Discuss the Python library. 
+    Discuss the Python library.
   \end{custombox}
-  
+
       \begin{figure}[t]
           {%
         \setlength{\fboxsep}{0pt}%
@@ -102,7 +103,7 @@
 
   \end{column}
 
-  
+
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   \begin{column}{.32\linewidth}
@@ -115,23 +116,17 @@
       tools that can be used to create distributed control systems. EPICS provides capabilities that are typically expected from a distributed control system:
   \end{custombox}
 
- 
-  \begin{custombox}{Results}
-    \begin{itemize}
-        \item Permanent "Syringe Error" message 
-        \item Behaviour of syringe movement indicator arrows not ideal, especially for fast movements 
-    \end{itemize}
-  \end{custombox}
-
   \begin{custombox}{Further Work}
     \begin{itemize}
         \item Develop a simulator for the syringe pump and use it to create system tests
-        \item Add a cleaning command 
+        \item Add a cleaning command
+        \item Permanent "Syringe Error" message
+        \item Behaviour of syringe movement indicator arrows not ideal, especially for fast movements
     \end{itemize}
   \end{custombox}
   \end{column}
   \end{columns}
-    
+
 \end{frame}
 
 \end{document}
