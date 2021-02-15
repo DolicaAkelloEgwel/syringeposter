@@ -1,17 +1,19 @@
 \documentclass[final,t]{beamer}
 \mode<presentation>
-  {
+ {
   \usetheme{boxes}
-  }
+ }
 
 \usepackage[orientation=landscape,size=a1,scale=1.3,debug]{beamerposter}
 \usepackage{wrapfig}
 \usepackage{background}
 \usepackage{lipsum} % for dummy text
 \usepackage{tcolorbox}
-\usepackage{helvet}
+% \usepackage{helvet}
 \usepackage{svg}
-\renewcommand{\familydefault}{\sfdefault}
+% \renewcommand{\familydefault}{\sfdefault}
+\usepackage{fontspec}
+\setsansfont{Avenir LT Std}
 \usebackgroundtemplate{\includesvg[width=\paperwidth]{template}}%
 \tcbuselibrary{skins}
 
