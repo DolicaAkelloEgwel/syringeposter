@@ -117,7 +117,7 @@ through an electrochemical cell.
 \end{itemize}
 \end{posterbox}
 
-\begin{posterbox}[name=implementaiton,column=1,span=2,below=objectives]{Implementation}
+\begin{posterbox}[name=implementation,column=1,span=2,below=objectives]{Implementation}
 \begin{minted}{python}
 def _cycle_commands(
     self, commands: List[Command], address: str,
@@ -137,6 +137,9 @@ def _cycle_commands(
 \end{minted}
 \end{posterbox}
 
+\begin{posterbox}[name=cycling,column=1,span=2,below=implementation]{Cycling and Command Line Interface}
+\end{posterbox}
+
 \begin{posterbox}[name=edmimage,column=3,headerfont={},headershape=rounded,boxheaderheight=0em,boxColorOne=white,borderColor=white]{rounded}
 \begin{figure}[H]
 \begin{center}
@@ -150,10 +153,10 @@ def _cycle_commands(
 
 \begin{posterbox}[name=futurework,column=3,above=bottom]{Future Work}
  \begin{itemize}
-    \item Make a Python library for controlling the Hamilton Microlab Syringe Pump
-    \item Add EDM screens
-    \item Add a cycling ability to allow
-    \item Interface with EPICS.
+    \item Write a simulation for the syringe pump 
+    \item Add a cleaning command to the library with a corresponding button on the EDM screen 
+    \item Enable syringe volumes to be changed on the fly 
+    \item Accomodate daisy-chaining multiple syringe pumps 
 \end{itemize}
 \end{posterbox}
 
