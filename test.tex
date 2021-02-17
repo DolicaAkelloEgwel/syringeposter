@@ -8,9 +8,10 @@
 \usepackage[none]{hyphenat}
 \usepackage[sfdefault]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
 \usepackage[T1]{fontenc}
+\usepackage{multicol}
 
 \usepackage{enumitem}
-\setlist[itemize]{leftmargin=*}
+\setlist[itemize]{leftmargin=*,itemsep=0.5pt}
 
 \renewcommand{\figurename}{\color{blue}Figure\color{black}}
 
@@ -89,13 +90,25 @@ and extensible Python API that addresses these issues and enables users to easil
 through an electrochemical cell.
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=12em]{images/syringediagram}
+\includegraphics[width=100pt]{images/syringediagram}
 \caption{Diagram of the syringe pump}
 \end{center}
 \end{figure}
 \end{posterbox}
+%----------------------------------------------------------------------------------------
+%	REMOTE WORK
+%----------------------------------------------------------------------------------------
+\begin{posterbox}[column=0,headerfont={},headershape=rounded,boxheaderheight=0em,boxColorOne=white,borderColor=white,below=introduction]{rounded}
+\begin{figure}[H]
+\begin{center}
+\vspace{-1em}
+\frame{\includegraphics[width=\textwidth]{images/camerasetup}}
+\caption{Remote working setup}
+\end{center}
+\end{figure}
+\end{posterbox}
 
-\begin{posterbox}[name=objectives,column=0,row=0,below=introduction]{Objectives}
+\begin{posterbox}[name=objectives,column=1,row=0,span=2]{Objectives}
  \begin{itemize}
     \item Make a Python library for controlling the Hamilton Microlab Syringe Pump
     \item Add EDM screens
@@ -104,7 +117,7 @@ through an electrochemical cell.
 \end{itemize}
 \end{posterbox}
 
-\begin{posterbox}[name=implementaiton,column=1,span=2]{Implementation}
+\begin{posterbox}[name=implementaiton,column=1,span=2,below=objectives]{Implementation}
 \begin{minted}{python}
 def _cycle_commands(
     self, commands: List[Command], address: str,
@@ -122,6 +135,26 @@ def _cycle_commands(
                 sleep(0.1)
     self._reset_cycle(address)
 \end{minted}
+\end{posterbox}
+
+\begin{posterbox}[name=edmimage,column=3,headerfont={},headershape=rounded,boxheaderheight=0em,boxColorOne=white,borderColor=white]{rounded}
+\begin{figure}[H]
+\begin{center}
+\frame{\includegraphics[width=\textwidth]{images/cycleedm}}
+\caption{Diagram of the syringe pump}
+\end{center}
+\end{figure}
+\end{posterbox}
+\begin{posterbox}[name=edmscreenexp,column=3,below=edmimage]{EDM Screens}
+\end{posterbox}
+
+\begin{posterbox}[name=futurework,column=3,above=bottom]{Future Work}
+ \begin{itemize}
+    \item Make a Python library for controlling the Hamilton Microlab Syringe Pump
+    \item Add EDM screens
+    \item Add a cycling ability to allow
+    \item Interface with EPICS.
+\end{itemize}
 \end{posterbox}
 
 \end{poster}
