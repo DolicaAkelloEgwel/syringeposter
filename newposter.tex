@@ -21,10 +21,12 @@
 \documentclass[landscape,a0paper,fontscale=0.285]{baposter} % Adjust the font scale/size here
 
 \usepackage{graphicx} % Required for including images
-\graphicspath{{figures/}} % Directory in which figures are stored
+\graphicspath{{images/}} % Directory in which figures are stored
 
 \usepackage{amsmath} % For typesetting math
 \usepackage{amssymb} % Adds new symbols to be used in math mode
+
+\usepackage{minted} % Code Examples
 
 \usepackage{booktabs} % Top and bottom rules for tables
 \usepackage{enumitem} % Used to reduce itemize/enumerate spacing
@@ -71,10 +73,10 @@ linewidth=2pt % Width of the border lines around content boxes
 %	TITLE SECTION 
 %----------------------------------------------------------------------------------------
 %
-{\includegraphics[height=4em]{images/diamondlogo}} % First university/lab logo on the left
+{\includegraphics[height=4em]{diamondlogo}} % First university/lab logo on the left
 {\bf Syringe Pump for Electrochemical Cell \vspace{0.5em}} % Poster title
 {\textbf{Dolica Akello-Egwel}, Gary Yendell \hspace{12pt} 2018 Cohort / Mantid Team} % Author names and institution
-{\includegraphics[height=4em]{images/stfclogo}} % Second university/lab logo on the right
+{\includegraphics[height=4em]{stfclogo}} % Second university/lab logo on the right
 
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
@@ -91,40 +93,15 @@ cell.
 }
 
 %----------------------------------------------------------------------------------------
-%	SOMETHING ELSE
+%	Implementation
 %----------------------------------------------------------------------------------------
 
-% \headerbox{Something Else}{name=somethingelse,column=1,row=0,bottomaligned=objectives}{
-%}
-
-%----------------------------------------------------------------------------------------
-%	RESULTS 1
-%----------------------------------------------------------------------------------------
-
-\headerbox{Results 1}{name=results,column=2,span=2,row=0}{
-
-\begin{multicols}{2}
-\vspace{1em}
-\begin{center}
-% \includegraphics[width=0.8\linewidth]{placeholder}
-\captionof{figure}{Figure caption}
-\end{center}
-
-Aliquam auctor, metus id ultrices porta, risus enim cursus sapien, quis iaculis sapien tortor sed odio. Mauris ante orci, euismod vitae tincidunt eu, porta ut neque. Aenean sapien est, viverra vel lacinia nec, venenatis eu nulla. Maecenas ut nunc nibh, et tempus libero. Aenean vitae risus ante. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing.
-\end{multicols}
-
-%------------------------------------------------
-
-\begin{multicols}{2}
-\vspace{1em}
-Sed fringilla tempus hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam ut elit sit amet metus lobortis consequat sit amet in libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel sem magna. Nunc at convallis urna. isus ante. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing. Quisque vestibulum eros eu.
-
-\begin{center}
-% \includegraphics[width=0.8\linewidth]{placeholder}
-\captionof{figure}{Figure caption}
-\end{center}
-
-\end{multicols}
+\headerbox{Implementation}{name=Implementaiton,column=1,span=2,row=0}{
+\begin{frame}[fragile]
+\begin{minted}{python}
+print("Hello World")
+\end{minted}
+\end{frame}
 }
 
 %----------------------------------------------------------------------------------------
