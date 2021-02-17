@@ -6,6 +6,13 @@
 \usepackage{wrapfig}
 \usepackage{minted}
 \usepackage[none]{hyphenat}
+\usepackage[sfdefault]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*}
+
+\renewcommand{\figurename}{\color{blue}Figure\color{black}}
 
 %%% Global Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -48,23 +55,24 @@
 	% that we have a bit nicer looking title and author formatting in the headercol
 	% this way
 	eyecatcher=true, 
-	borderColor=black,
+	borderColor=blue,
 	headerColorOne=blue,
 	headerColorTwo=blue,
 	headerFontColor=white,
 	% Only simple background color used, no shading, so boxColorTwo isn't necessary
-	boxColorOne=boxcolor,
+	boxColorOne=white,
 	headershape=rectangle,
-	headerborder=closed,
+	headerborder=open,
 	headerfont=\Large\sf\bf,
 	textborder=rectangle,
 	background=none,
 	headerborder=open,
-    boxshade=plain
+    boxshade=plain,
+    columns=4
 }
 %%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {\includegraphics[height=4em]{images/diamondlogo}} 
-{\bf Syringe Pump for Electrochemical Cell \vspace{0.5em}} % Poster title
+{\bf \color{blue} Syringe Pump for Electrochemical Cell \vspace{0.5em}} % Poster title
 {\textbf{Dolica Akello-Egwel}, Gary Yendell \hspace{12pt} 2018 Cohort / Mantid Team} % Author names and institution
 {\includegraphics[height=4em]{images/stfclogo}} 
 
@@ -77,8 +85,14 @@ The existing streamDevice-based EPICS driver for the Hamilton Microlab 500/600 S
 especially suited to sending "complex" commands that contain two or more instructions.
 The driver also lacked the ability to reliably send simultaneous commands to both syringes, and to
 cycle sets of simultaneous commands indefinetly. The aim of this project was to create a user-friendly
-and extensible Python API that allows users to easily create continuous flows through an electrochemical
-cell.
+and extensible Python API that addresses these issues and enables users to easily create continuous flows 
+through an electrochemical cell.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=12em]{images/syringediagram}
+\caption{Diagram of the syringe pump}
+\end{center}
+\end{figure}
 \end{posterbox}
 
 \begin{posterbox}[name=objectives,column=0,row=0,below=introduction]{Objectives}
@@ -90,20 +104,11 @@ cell.
 \end{itemize}
 \end{posterbox}
 
-\begin{posterbox}[name=implementaiton,span=2,column=1]{Implementation}
+\begin{posterbox}[name=implementaiton,column=1,span=2]{Implementation}
 \begin{minted}{python}
 def _cycle_commands(
     self, commands: List[Command], address: str,
 ):
-    """Cycles through lists of commands. Stops when the `stop_cycle` method is
-    called.
-
-    Args:
-        command_lists (List[Command]): The list of commands.
-        address (str): The target address for the commands.
-    """
-    # Avoid getting lots of log messages every time `send_receive` is called
-    logging.getLogger(self._comms.__class__.__name__).setLevel(logging.ERROR)
     while not self._stop_requested:
         for command in commands:
             self.send_command(command, address)
