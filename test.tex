@@ -20,14 +20,6 @@
 \graphicspath{{pix/}}	% Root directory of the pictures
 \tracingstats=2			% Enabled LaTeX logging with conditionals
 
-%%% Color Definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\definecolor{bordercol}{RGB}{68,68,68}
-\definecolor{headercol1}{RGB}{254,210,11}
-\definecolor{headercol2}{RGB}{242,121,0}
-\definecolor{headerfontcol}{RGB}{0,0,0}
-\definecolor{boxcolor}{RGB}{255,255,230}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Utility functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -46,7 +38,7 @@
 \typeout{Poster rendering started}
 
 %%% Setting Background Image %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\background{}
+\background{template.svg}
 
 %%% General Poster Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Eye Catcher, Title, Authors and University Images %%%%%%%%%%%%%%%%%%%%%%
@@ -76,6 +68,7 @@
 {\bf \color{blue} Syringe Pump for Electrochemical Cell \vspace{0.5em}} % Poster title
 {\textbf{Dolica Akello-Egwel}, Gary Yendell \hspace{12pt} 2018 Cohort / Mantid Team} % Author names and institution
 {\includegraphics[height=4em]{images/stfclogo}}
+
 %%%% Column 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
@@ -102,10 +95,11 @@ through an electrochemical cell.
 \begin{center}
 \vspace{-1em}
 \frame{\includegraphics[width=\textwidth]{images/camerasetup}}
-\caption{Remote working setup}
+\caption{Remote working setup. }
 \end{center}
 \end{figure}
 \end{posterbox}
+
 %%%% Column 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----------------------------------------------------------------------------------------
 %	OBJECTIVES
@@ -145,25 +139,22 @@ def _cycle_commands(
 %	CYCLING + CLI
 %----------------------------------------------------------------------------------------
 \begin{posterbox}[name=cycling,column=1,span=2,below=implementation]{Cycling and Command Line Interface}
-    \begin{minted}{python}
-
-    In [1]: speed = 20
-
-    In [2]: empty_right_subcommands = [
-    ...:     SyringeDispense(syringe=Side.RIGHT, value=MAX_SYRINGE_MOVE, speed=speed),
-    ...:     SyringePickup(syringe=Side.LEFT, value=MAX_SYRINGE_MOVE, speed=speed),
-    ...: ]
-
-    In [3]: empty_left_subcommands = [
-    ...:     SyringeDispense(syringe=Side.LEFT, value=MAX_SYRINGE_MOVE, speed=speed),
-    ...:     SyringePickup(syringe=Side.RIGHT, value=MAX_SYRINGE_MOVE, speed=speed),
-    ...: ]
-
-    In [4]: microlab.cycle_commands(
-    ...:     [Command(empty_right_subcommands), Command(empty_left_subcommands)]
-    ...: )
-    \end{minted}
+\begin{minted}{python}
+speed = 20
+empty_right_subcommands = [
+    SyringeDispense(syringe=Side.RIGHT, value=MAX_SYRINGE_MOVE, speed=speed),
+    SyringePickup(syringe=Side.LEFT, value=MAX_SYRINGE_MOVE, speed=speed),
+]
+empty_left_subcommands = [
+   SyringeDispense(syringe=Side.LEFT, value=MAX_SYRINGE_MOVE, speed=speed),
+   SyringePickup(syringe=Side.RIGHT, value=MAX_SYRINGE_MOVE, speed=speed),
+   ]
+microlab.cycle_commands(
+   [Command(empty_right_subcommands), Command(empty_left_subcommands)]
+)
+\end{minted}
 \end{posterbox}
+
 %%%% Column 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----------------------------------------------------------------------------------------
 %	EDM IMAGE
@@ -188,7 +179,7 @@ def _cycle_commands(
  \begin{itemize}
     \item Write a simulation for the syringe pump
     \item Add a cleaning command to the library with a corresponding button on the EDM screen
-    \item Enable syringe volumes to be changed on the fly
+    \item Allow the EDM screen to update immediately when the syringe volume is changed
     \item Accomodate daisy-chaining multiple syringe pumps
 \end{itemize}
 \end{posterbox}
