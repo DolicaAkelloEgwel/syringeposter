@@ -112,8 +112,8 @@ through an electrochemical cell.
 \begin{center}
 \vspace{-1em}
 \setlength{\fboxrule}{2pt}
-\fbox{\includegraphics[width=0.75\textwidth]{images/camerasetup}}
-\caption{Remote working setup. }
+\fbox{\includegraphics[width=0.7\textwidth]{images/camerasetup}}
+\caption{Remote working setup: a GiGE camera is facing the syringe, and its feed is streamed through http.}
 \vspace{-1.2em}
 \end{center}
 \end{figure}
@@ -141,6 +141,7 @@ def _cycle_commands(
                 sleep(0.1)
     self._reset_cycle(address)
 \end{minted}
+    The Python 3 \texttt{microlab} library gave users access to the instrument's information requests, status requests, and syringe positioning commands.
 \end{posterbox}
 %----------------------------------------------------------------------------------------
 %	CYCLING
