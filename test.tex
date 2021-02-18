@@ -113,7 +113,7 @@ through an electrochemical cell.
 \vspace{-1em}
 \setlength{\fboxrule}{2pt}
 \fbox{\includegraphics[width=0.7\textwidth]{images/camerasetup}}
-\caption{Remote working setup: a GiGE camera is facing the syringe, and its feed is streamed through http.}
+\caption{Remote working setup: a GigE camera is facing the syringe, and its feed is streamed through http.}
 \vspace{-1.2em}
 \end{center}
 \end{figure}
@@ -125,28 +125,30 @@ through an electrochemical cell.
 %----------------------------------------------------------------------------------------
 \begin{posterbox}[name=implementation,column=1,span=2]{Implementation}
 \begin{minted}{python}
-def _cycle_commands(
-    self, commands: List[Command], address: str,
-):
-    while not self._stop_requested:
-        for command in commands:
-            self.send_command(command, address)
-            while (
-                self._comms.send_receive(address + INSTRUMENT_DONE)[1]
-                != Y_INFO_RESPONSE
-            ):
-                if self._stop_requested:
-                    self._reset_cycle(address)
-                    return
-                sleep(0.1)
-    self._reset_cycle(address)
+def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
+    success = False
+    data = None
+    decoded_response = self._send_receive(request)
+    if decoded_response is None:
+        return False, None
+    messages = decoded_response.split(CR)[:-1]
+    if len(messages) > 1:
+        self._log.warning(
+            "Received multiple messages in response:\n"
+            f"{self._format_message(decoded_response)}"
+        )
+    decoded_response = messages[-1]
+    if decoded_response[0] == ACK:
+        success = True
+        data = decoded_response.strip(ACK).strip(CR) or None
+    return success, data
 \end{minted}
-    The Python 3 \texttt{microlab} library gave users access to the instrument's information requests, status requests, and syringe positioning commands.
+The Python 3 \texttt{microlab} library gave users access to the instrument's information requests, status requests, syringe positioning/readback and valve positioning/readback commands.
 \end{posterbox}
 %----------------------------------------------------------------------------------------
 %	CYCLING
 %----------------------------------------------------------------------------------------
-\begin{posterbox}[name=cycling,column=1,span=2,below=implementation]{Cycling and Command Line Interface}
+\begin{posterbox}[name=cycling,column=1,span=2,below=implementation]{Cycling}
 \begin{multicols}{2}
 \begin{figure}[H]
     \begin{center}
@@ -177,6 +179,12 @@ def _cycle_commands(
 %	EDM SCREENS
 %----------------------------------------------------------------------------------------
 \begin{posterbox}[name=edmscreenexp,column=3,below=edmimage]{EDM Screens}
+\end{posterbox}
+%----------------------------------------------------------------------------------------
+%	OUTCOME
+%----------------------------------------------------------------------------------------
+\begin{posterbox}[name=outcome,column=3,below=edmscreenexp]{Outcome}
+The cycling behaviour was unable to run overnight without issue. However, some instrument error requests.
 \end{posterbox}
 %----------------------------------------------------------------------------------------
 %	FUTURE WORK
