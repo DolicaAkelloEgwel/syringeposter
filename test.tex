@@ -1,4 +1,4 @@
-\documentclass[a0paper,landscape]{baposter}
+\documentclass[a0paper,landscape,fontscale=0.35]{baposter}
 
 \usepackage{relsize}		% For \smaller
 \usepackage{epstopdf}	% Included EPS files automatically converted to PDF to include with pdflatex
@@ -11,7 +11,7 @@
 \usepackage{multicol}
 
 \usepackage{enumitem}
-\setlist[itemize]{leftmargin=*,itemsep=0.5pt}
+\setlist[itemize]{leftmargin=*,itemsep=0.1pt}
 
 \renewcommand{\figurename}{\color{blue}Figure\color{black}}
 
@@ -90,7 +90,7 @@ through an electrochemical cell.
 %----------------------------------------------------------------------------------------
 %	REMOTE WORK
 %----------------------------------------------------------------------------------------
-\begin{posterbox}[column=0,headerfont={},headershape=rounded,boxheaderheight=0em,boxColorOne=white,borderColor=white,below=introduction]{rounded}
+\begin{posterbox}[name=remotework,column=0,headerfont={},headershape=rounded,boxheaderheight=0em,boxColorOne=white,borderColor=white,below=introduction]{rounded}
 \begin{figure}[H]
 \begin{center}
 \vspace{-1em}
@@ -99,12 +99,10 @@ through an electrochemical cell.
 \end{center}
 \end{figure}
 \end{posterbox}
-
-%%%% Column 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----------------------------------------------------------------------------------------
 %	OBJECTIVES
 %----------------------------------------------------------------------------------------
-\begin{posterbox}[name=objectives,column=1,row=0,span=2]{Objectives}
+\begin{posterbox}[name=objectives,column=0,row=0,below=remotework]{Objectives}
  \begin{itemize}
     \item Make a Python library for controlling the Hamilton Microlab Syringe Pump
     \item Allow the library to be controlled with a command-line interface
@@ -113,10 +111,12 @@ through an electrochemical cell.
     \item Create a graphical interface using EDM screens
 \end{itemize}
 \end{posterbox}
+
+%%%% Column 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----------------------------------------------------------------------------------------
 %	IMPLEMENTATION
 %----------------------------------------------------------------------------------------
-\begin{posterbox}[name=implementation,column=1,span=2,below=objectives]{Implementation}
+\begin{posterbox}[name=implementation,column=1,span=2]{Implementation}
 \begin{minted}{python}
 def _cycle_commands(
     self, commands: List[Command], address: str,
@@ -136,22 +136,34 @@ def _cycle_commands(
 \end{minted}
 \end{posterbox}
 %----------------------------------------------------------------------------------------
-%	CYCLING + CLI
+%	CYCLING
 %----------------------------------------------------------------------------------------
 \begin{posterbox}[name=cycling,column=1,span=2,below=implementation]{Cycling and Command Line Interface}
-\begin{minted}{python}
-empty_right_subcommands = [
-    SyringeDispense(syringe=Side.RIGHT, value=MAX_SYRINGE_MOVE, speed=speed),
-    SyringePickup(syringe=Side.LEFT, value=MAX_SYRINGE_MOVE, speed=speed),
-]
-empty_left_subcommands = [
-   SyringeDispense(syringe=Side.LEFT, value=MAX_SYRINGE_MOVE, speed=speed),
-   SyringePickup(syringe=Side.RIGHT, value=MAX_SYRINGE_MOVE, speed=speed),
-   ]
-microlab.cycle_commands(
-   [Command(empty_right_subcommands), Command(empty_left_subcommands)]
-)
-\end{minted}
+\begin{multicols}{2}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=0.3\textwidth]{images/combined}
+    \end{center}
+  \caption{Cycling behaviour}
+\end{figure}
+Hello, here is some text without a meaning.  This text should show what
+a printed text will look like at this place.
+If you read this text, you will get no information.  Really?  Is there
+no information?  Is there...
+\end{multicols}
+% \begin{minted}[fontsize=\small]{python}
+% empty_right_subcommands = [
+%     SyringeDispense(syringe=Side.RIGHT, value=MAX_SYRINGE_MOVE, speed=speed),
+%     SyringePickup(syringe=Side.LEFT, value=MAX_SYRINGE_MOVE, speed=speed),
+% ]
+% empty_left_subcommands = [
+%    SyringeDispense(syringe=Side.LEFT, value=MAX_SYRINGE_MOVE, speed=speed),
+%    SyringePickup(syringe=Side.RIGHT, value=MAX_SYRINGE_MOVE, speed=speed),
+%    ]
+% microlab.cycle_commands(
+%    [Command(empty_right_subcommands), Command(empty_left_subcommands)]
+% )
+% \end{minted}
 \end{posterbox}
 
 %%%% Column 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
