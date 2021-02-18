@@ -17,7 +17,7 @@
 
 %%% Global Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\graphicspath{{pix/}}	% Root directory of the pictures 
+\graphicspath{{pix/}}	% Root directory of the pictures
 \tracingstats=2			% Enabled LaTeX logging with conditionals
 
 %%% Color Definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,7 +55,7 @@
 	% Option is left on true though the eyecatcher is not used. The reason is
 	% that we have a bit nicer looking title and author formatting in the headercol
 	% this way
-	eyecatcher=true, 
+	eyecatcher=true,
 	borderColor=blue,
 	headerColorOne=blue,
 	headerColorTwo=blue,
@@ -72,10 +72,10 @@
     columns=4
 }
 %%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-{\includegraphics[height=4em]{images/diamondlogo}} 
+{\includegraphics[height=4em]{images/diamondlogo}}
 {\bf \color{blue} Syringe Pump for Electrochemical Cell \vspace{0.5em}} % Poster title
 {\textbf{Dolica Akello-Egwel}, Gary Yendell \hspace{12pt} 2018 Cohort / Mantid Team} % Author names and institution
-{\includegraphics[height=4em]{images/stfclogo}} 
+{\includegraphics[height=4em]{images/stfclogo}}
 %%%% Column 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
@@ -85,7 +85,7 @@ The existing streamDevice-based EPICS driver for the Hamilton Microlab 500/600 S
 especially suited to sending "complex" commands that contain two or more instructions.
 The driver also lacked the ability to reliably send simultaneous commands to both syringes, and to
 cycle sets of simultaneous commands indefinetly. The aim of this project was to create a user-friendly
-and extensible Python API that addresses these issues and enables users to easily create continuous flows 
+and extensible Python API that addresses these issues and enables users to easily create continuous flows
 through an electrochemical cell.
 \begin{figure}[H]
 \begin{center}
@@ -113,9 +113,9 @@ through an electrochemical cell.
 \begin{posterbox}[name=objectives,column=1,row=0,span=2]{Objectives}
  \begin{itemize}
     \item Make a Python library for controlling the Hamilton Microlab Syringe Pump
-    \item Allow the library to be controlled with a command-line interface 
+    \item Allow the library to be controlled with a command-line interface
     \item Add a cycling ability to allow the manipulation of continuous flows
-    \item Allow the syringe paramters to be controlled via EPICS 
+    \item Allow the syringe paramters to be controlled via EPICS
     \item Create a graphical interface using EDM screens
 \end{itemize}
 \end{posterbox}
@@ -146,7 +146,7 @@ def _cycle_commands(
 %----------------------------------------------------------------------------------------
 \begin{posterbox}[name=cycling,column=1,span=2,below=implementation]{Cycling and Command Line Interface}
     \begin{minted}{python}
-        
+
     In [1]: speed = 20
 
     In [2]: empty_right_subcommands = [
@@ -186,10 +186,10 @@ def _cycle_commands(
 %----------------------------------------------------------------------------------------
 \begin{posterbox}[name=futurework,column=3,above=bottom]{Future Work}
  \begin{itemize}
-    \item Write a simulation for the syringe pump 
-    \item Add a cleaning command to the library with a corresponding button on the EDM screen 
-    \item Enable syringe volumes to be changed on the fly 
-    \item Accomodate daisy-chaining multiple syringe pumps 
+    \item Write a simulation for the syringe pump
+    \item Add a cleaning command to the library with a corresponding button on the EDM screen
+    \item Enable syringe volumes to be changed on the fly
+    \item Accomodate daisy-chaining multiple syringe pumps
 \end{itemize}
 \end{posterbox}
 
