@@ -76,7 +76,6 @@
 {\bf \color{blue} Syringe Pump for Electrochemical Cell \vspace{0.5em}} % Poster title
 {\textbf{Dolica Akello-Egwel}, Gary Yendell \hspace{12pt} 2018 Cohort / Mantid Team} % Author names and institution
 {\includegraphics[height=4em]{images/stfclogo}} 
-
 %%%% Column 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
@@ -107,7 +106,10 @@ through an electrochemical cell.
 \end{center}
 \end{figure}
 \end{posterbox}
-
+%%%% Column 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
 \begin{posterbox}[name=objectives,column=1,row=0,span=2]{Objectives}
  \begin{itemize}
     \item Make a Python library for controlling the Hamilton Microlab Syringe Pump
@@ -116,7 +118,9 @@ through an electrochemical cell.
     \item Interface with EPICS.
 \end{itemize}
 \end{posterbox}
-
+%----------------------------------------------------------------------------------------
+%	IMPLEMENTATION
+%----------------------------------------------------------------------------------------
 \begin{posterbox}[name=implementation,column=1,span=2,below=objectives]{Implementation}
 \begin{minted}{python}
 def _cycle_commands(
@@ -136,21 +140,49 @@ def _cycle_commands(
     self._reset_cycle(address)
 \end{minted}
 \end{posterbox}
-
+%----------------------------------------------------------------------------------------
+%	CYCLING + CLI
+%----------------------------------------------------------------------------------------
 \begin{posterbox}[name=cycling,column=1,span=2,below=implementation]{Cycling and Command Line Interface}
-\end{posterbox}
+    \begin{minted}{python}
+        
+    In [1]: speed = 20
 
+    In [2]: empty_right_subcommands = [
+    ...:     SyringeDispense(syringe=Side.RIGHT, value=MAX_SYRINGE_MOVE, speed=speed),
+    ...:     SyringePickup(syringe=Side.LEFT, value=MAX_SYRINGE_MOVE, speed=speed),
+    ...: ]
+
+    In [3]: empty_left_subcommands = [
+    ...:     SyringeDispense(syringe=Side.LEFT, value=MAX_SYRINGE_MOVE, speed=speed),
+    ...:     SyringePickup(syringe=Side.RIGHT, value=MAX_SYRINGE_MOVE, speed=speed),
+    ...: ]
+
+    In [4]: microlab.cycle_commands(
+    ...:     [Command(empty_right_subcommands), Command(empty_left_subcommands)]
+    ...: )
+    \end{minted}
+\end{posterbox}
+%%%% Column 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%	EDM IMAGE
+%----------------------------------------------------------------------------------------
 \begin{posterbox}[name=edmimage,column=3,headerfont={},headershape=rounded,boxheaderheight=0em,boxColorOne=white,borderColor=white]{rounded}
 \begin{figure}[H]
 \begin{center}
 \frame{\includegraphics[width=\textwidth]{images/cycleedm}}
-\caption{Diagram of the syringe pump}
+\caption{EDM screen for controlling command cycling}
 \end{center}
 \end{figure}
 \end{posterbox}
+%----------------------------------------------------------------------------------------
+%	EDM SCREENS
+%----------------------------------------------------------------------------------------
 \begin{posterbox}[name=edmscreenexp,column=3,below=edmimage]{EDM Screens}
 \end{posterbox}
-
+%----------------------------------------------------------------------------------------
+%	FUTURE WORK
+%----------------------------------------------------------------------------------------
 \begin{posterbox}[name=futurework,column=3,above=bottom]{Future Work}
  \begin{itemize}
     \item Write a simulation for the syringe pump 
