@@ -144,6 +144,15 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
     return success, data
 \end{minted}
 The Python 3 \texttt{microlab} library gave users access to the instrument's information requests, status requests, syringe positioning/readback and valve positioning/readback commands.
+Code hygeine:
+\begin{multicols}{2}
+ \begin{itemize}
+     \item \texttt{black} 
+     \item \texttt{flake8} 
+     \item \texttt{mypy} 
+     \item \texttt{isort} 
+\end{itemize}
+\end{multicols}
 \end{posterbox}
 %----------------------------------------------------------------------------------------
 %	CYCLING
