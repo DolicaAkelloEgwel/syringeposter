@@ -194,23 +194,9 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
 
 %%%% Column 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----------------------------------------------------------------------------------------
-%	EDM IMAGE
-%----------------------------------------------------------------------------------------
-\begin{posterbox}[name=edmimage,column=3,headerfont={},headershape=rounded,boxheaderheight=0em,boxColorOne=white,borderColor=white]{rounded}
-\begin{figure}[H]
-\begin{center}
-\vspace{-1em}
-\setlength{\fboxrule}{2pt}
-\fbox{\includegraphics[width=0.8\textwidth]{images/cycleedm}}
-\caption{EDM screen for controlling command cycling}
-\vspace{-1.2em}
-\end{center}
-\end{figure}
-\end{posterbox}
-%----------------------------------------------------------------------------------------
 %	EDM SCREENS
 %----------------------------------------------------------------------------------------
-\begin{posterbox}[name=edmscreenexp,column=3,below=edmimage]{EDM Screens}
+\begin{posterbox}[name=edmscreens,column=3]{EDM Screens}
     The EDM screens allowed users to access the cycling commands and view the output of status/error requests.
     A bar chart was used to depict the amount of liquid in the syringes. Updates to this bar chart created an
     "animation" effect that would let users know when the syringes are picking up or dispensing fluid. The
@@ -218,12 +204,28 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
     picking up or dispensing.
 \end{posterbox}
 %----------------------------------------------------------------------------------------
+%	EDM IMAGE
+%----------------------------------------------------------------------------------------
+\begin{posterbox}[name=edmimage,column=3,below=edmscreens,headerfont={},headershape=rounded,boxheaderheight=0em,boxColorOne=white,borderColor=white]{rounded}
+\begin{figure}[H]
+\begin{center}
+\vspace{-1em}
+\setlength{\fboxrule}{2pt}
+\fbox{\includegraphics[width=0.73\textwidth]{images/cycleedm}}
+\caption{EDM screen for controlling command cycling}
+\vspace{-1.2em}
+\end{center}
+\end{figure}
+\end{posterbox}
+%----------------------------------------------------------------------------------------
 %	OUTCOME
 %----------------------------------------------------------------------------------------
-\begin{posterbox}[name=outcome,column=3,below=edmscreenexp]{Outcome}
+\begin{posterbox}[name=outcome,column=3,below=edmimage]{Outcome}
 The cycling behaviour was unable to run overnight without issue. However, some instrument error requests would
 give misleading information. The responsiveness of some of the information on the EDM screen was also
-    dependent on the number of information requests being sent to the device.
+    dependent on the number of information requests being sent to the device. To syringe positon and related
+    information were given their own seperate monitor loop to counteract this. While this created a bit of an
+    improvement, syringe movements that were too fast would often get "missed" by the loop. 
 \end{posterbox}
 %----------------------------------------------------------------------------------------
 %	FUTURE WORK
