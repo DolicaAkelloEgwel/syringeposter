@@ -10,14 +10,18 @@
 \usepackage[T1]{fontenc}
 \usepackage{multicol}
 
+\usepackage{tcolorbox}
+\BeforeBeginEnvironment{minted}{\begin{tcolorbox}}%
+\AfterEndEnvironment{minted}{\end{tcolorbox}}%
+
+\usemintedstyle{autumn}
+
 \usepackage{enumitem}
-\setlist[itemize]{leftmargin=*,itemsep=0.1pt}
+\setlist[itemize]{leftmargin=*,itemsep=0pt}
 
 \renewcommand\fbox{\fcolorbox{blue}{white}}
 \setlength{\fboxsep}{0pt}
 \setlength{\fboxrule}{5pt}
-
-\renewcommand{\figurename}{\color{blue}Figure\color{black}}
 
 %%% Global Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -56,6 +60,7 @@
 	headerColorOne=blue,
 	headerColorTwo=blue,
 	headerFontColor=white,
+	headerborder=closed,
 	% Only simple background color used, no shading, so boxColorTwo isn't necessary
 	boxColorOne=white,
 	headershape=smallrounded,
@@ -63,7 +68,6 @@
 	headerfont=\Large\sf\bf,
 	textborder=rectangle,
 	background=none,
-	headerborder=open,
     boxshade=plain,
     columns=4
 }
@@ -107,7 +111,7 @@ through an electrochemical cell.
 %	REMOTE WORK
 %----------------------------------------------------------------------------------------
 \setlength{\fboxrule}{0.8pt}
-\begin{posterbox}[name=remotework,column=0,headerfont={},headershape=rounded,boxheaderheight=0em,boxColorOne=white,borderColor=white,below=objectives]{}
+\begin{posterbox}[name=remotework,column=0,headerfont={},headershape=rounded,boxheaderheight=0em,borderColor=white,below=objectives]{}
 \begin{figure}[H]
 \begin{center}
 \vspace{-1.8em}
@@ -124,7 +128,18 @@ through an electrochemical cell.
 %	IMPLEMENTATION
 %----------------------------------------------------------------------------------------
 \begin{posterbox}[name=implementation,column=1,span=2]{Implementation}
-\begin{minted}{python}
+The Python 3 \texttt{microlab} library implemented methods for the following commands:
+ \begin{itemize}
+     \item \textbf{Instrument Information Requests} - Instrument done status, basic syringe and valve error
+         information, device configuration info
+     \item \textbf{Instrument Status Requests} - Timer status, detailed component busy status, detailed
+         component error status
+     \item \textbf{Positioning, Setters, and Readback Commands} - Setting/getting
+         syringe/valve position, setting/getting syringe speed 
+\end{itemize}
+\vspace{-1.5em}
+\begin{listing}[H]
+    \begin{minted}{python}
 def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
     success = False
     data = None
@@ -143,16 +158,17 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
         data = decoded_response.strip(ACK).strip(CR) or None
     return success, data
 \end{minted}
-The Python 3 \texttt{microlab} library gave users access to the instrument's information requests, status requests, syringe positioning/readback and valve positioning/readback commands.
-Code hygeine:
-\begin{multicols}{2}
- \begin{itemize}
-     \item \texttt{black} 
-     \item \texttt{flake8} 
-     \item \texttt{mypy} 
-     \item \texttt{isort} 
-\end{itemize}
-\end{multicols}
+    \caption{Extract from the \texttt{send\_receive} method, which is the resposible for sending command
+    strings to the device and decoding the reply}
+\end{listing}
+% \begin{multicols}{2}
+%  \begin{itemize}
+%      \item \texttt{black} 
+%      \item \texttt{flake8} 
+%      \item \texttt{mypy} 
+%      \item \texttt{isort} 
+% \end{itemize}
+% \end{multicols}
 \end{posterbox}
 %----------------------------------------------------------------------------------------
 %	CYCLING
@@ -161,7 +177,7 @@ Code hygeine:
 \begin{multicols}{2}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=0.3\textwidth]{images/combined}
+    \includegraphics[width=0.275\textwidth]{images/combined}
     \end{center}
     \vspace{-1.2em}
   \caption{Cycling behaviour}
@@ -185,7 +201,7 @@ Code hygeine:
 \begin{center}
 \vspace{-1em}
 \setlength{\fboxrule}{2pt}
-\fbox{\includegraphics[width=\textwidth]{images/cycleedm}}
+\fbox{\includegraphics[width=0.8\textwidth]{images/cycleedm}}
 \caption{EDM screen for controlling command cycling}
 \vspace{-1.2em}
 \end{center}
@@ -195,12 +211,19 @@ Code hygeine:
 %	EDM SCREENS
 %----------------------------------------------------------------------------------------
 \begin{posterbox}[name=edmscreenexp,column=3,below=edmimage]{EDM Screens}
+    The EDM screens allowed users to access the cycling commands and view the output of status/error requests.
+    A bar chart was used to depict the amount of liquid in the syringes. Updates to this bar chart created an
+    "animation" effect that would let users know when the syringes are picking up or dispensing fluid. The
+    change in the syringe position also triggered the appearance of an arrow that indicates if the syringe is
+    picking up or dispensing.
 \end{posterbox}
 %----------------------------------------------------------------------------------------
 %	OUTCOME
 %----------------------------------------------------------------------------------------
 \begin{posterbox}[name=outcome,column=3,below=edmscreenexp]{Outcome}
-The cycling behaviour was unable to run overnight without issue. However, some instrument error requests.
+The cycling behaviour was unable to run overnight without issue. However, some instrument error requests would
+give misleading information. The responsiveness of some of the information on the EDM screen was also
+    dependent on the number of information requests being sent to the device.
 \end{posterbox}
 %----------------------------------------------------------------------------------------
 %	FUTURE WORK
