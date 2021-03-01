@@ -174,18 +174,18 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
 \begin{posterbox}[name=cycling,column=1,span=2,below=implementation]{Command Cycling}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=0.8\textwidth]{images/combined}
+    \includegraphics[width=0.75\textwidth]{images/combined}
     \end{center}
     \vspace{-1.2em}
   \caption{Different stages of the cycling loop.}
 \end{figure}
 \begin{multicols}{2}
 The cycling behaviour worked by creating a separate thread for repeatedly sending commands to the syringes.
-    This command contained an instrument address and a pair of syringe speeds. The cycling thread would then
-    continuously send a cycling command to the instrument, wait for the instrument to report that it was idle
+    This command contained an instrument address and a pair of syringe speeds. Upon receiving this, a cycling thread would then
+    continuously send the first part of the cycling command to the instrument, wait for the instrument to report that it was idle
      and then send the next command in the cycling list.
-    The central thread was able to detect when the `stop\_cycle` method had been called. This would flip a
-    switch and cause the cycling loop to exit.
+    The central thread was able to detect when the \texttt{stop\_cycle} method had been called. This would flip a
+    switch and cause the cycling loop to break.
 \end{multicols}
 \end{posterbox}
 
@@ -208,7 +208,7 @@ The cycling behaviour worked by creating a separate thread for repeatedly sendin
 \begin{center}
 \vspace{-1em}
 \setlength{\fboxrule}{2pt}
-\fbox{\includegraphics[width=0.73\textwidth]{images/cycleedm}}
+\fbox{\includegraphics[width=0.755\textwidth]{images/cycleedm}}
 \caption{EDM screen for controlling syringe cycling.}
 \vspace{-1.2em}
 \end{center}
@@ -218,16 +218,16 @@ The cycling behaviour worked by creating a separate thread for repeatedly sendin
 %	OUTCOME
 %----------------------------------------------------------------------------------------
 \begin{posterbox}[name=outcome,column=3,below=edmimage]{Outcome}
-The cycling behaviour was unable to run overnight without issue. However, some instrument error requests would
+The cycling method was able to run overnight without issue. However, some instrument error requests would
 give misleading information. The responsiveness of some of the information on the EDM screen was also
-    dependent on the number of information requests being sent to the device. To syringe position and related
+    dependent on the number of information requests being sent to the device. Syringe position and related
     information were given their own separate monitor loop to counteract this. While this created a bit of an
-    improvement, syringe movements that were too fast would often get "missed" by the loop. 
+    improvement, syringe movements that were too fast would often get "missed" by the display. 
 \end{posterbox}
 %----------------------------------------------------------------------------------------
 %	FUTURE WORK
 %----------------------------------------------------------------------------------------
-\begin{posterbox}[name=futurework,column=3,above=bottom]{Future Work}
+\begin{posterbox}[name=futurework,column=3,below=outcome]{Future Work}
  \begin{itemize}
     \item Write a simulation for the syringe pump
     \item Add a cleaning command to the library with a corresponding button on the EDM screen
