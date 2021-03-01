@@ -3,6 +3,7 @@
 \usepackage{relsize}		% For \smaller
 \usepackage{epstopdf}	% Included EPS files automatically converted to PDF to include with pdflatex
 \usepackage{float}
+\usepackage{lipsum}
 \usepackage{wrapfig}
 \usepackage{minted}
 \usepackage[none]{hyphenat}
@@ -161,6 +162,7 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
     \caption{Extract from the \texttt{send\_receive} method, which is the resposible for sending command
     strings to the device and decoding the reply}
 \end{listing}
+    The following tools were used for code quality/cleaniless: \texttt{black}, \texttt{flake8}, \texttt{mypy}, \texttt{isort}
 % \begin{multicols}{2}
 %  \begin{itemize}
 %      \item \texttt{black} 
@@ -182,6 +184,7 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
   \caption{Cycling behaviour}
 \end{figure}
 \begin{multicols}{2}
+    \lipsum[2]
 % \begin{figure}[H]
 %    \begin{center}
 %    \includegraphics[width=0.45\textwidth]{images/examplemanualcommand}
@@ -212,7 +215,7 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
 \vspace{-1em}
 \setlength{\fboxrule}{2pt}
 \fbox{\includegraphics[width=0.73\textwidth]{images/cycleedm}}
-\caption{EDM screen for controlling command cycling}
+\caption{EDM screen for controlling syringe cycling}
 \vspace{-1.2em}
 \end{center}
 \end{figure}
