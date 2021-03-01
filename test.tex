@@ -15,6 +15,8 @@
 \BeforeBeginEnvironment{minted}{\begin{tcolorbox}}%
 \AfterEndEnvironment{minted}{\end{tcolorbox}}%
 
+\usepackage[font={small,it},labelfont={color=blue}]{caption}
+
 \usemintedstyle{autumn}
 
 \usepackage{enumitem}
@@ -92,7 +94,7 @@ through an electrochemical cell.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=100pt]{images/syringediagram}
-\caption{Diagram of the syringe pump}
+\caption{Diagram of the syringe pump.}
 \end{center}
 \end{figure}
 \end{posterbox}
@@ -160,9 +162,11 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
     return success, data
 \end{minted}
     \caption{Extract from the \texttt{send\_receive} method, which is the resposible for sending command
-    strings to the device and decoding the reply}
+    strings to the device and decoding the reply.}
 \end{listing}
-    The following tools were used for code quality/cleaniless: \texttt{black}, \texttt{flake8}, \texttt{mypy}, \texttt{isort}
+    \vspace{-1.2em}
+    The following tools were used for code quality/cleaniless: \texttt{black}, \texttt{flake8}, \texttt{mypy},
+    and \texttt{isort.}
 % \begin{multicols}{2}
 %  \begin{itemize}
 %      \item \texttt{black} 
@@ -215,7 +219,7 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
 \vspace{-1em}
 \setlength{\fboxrule}{2pt}
 \fbox{\includegraphics[width=0.73\textwidth]{images/cycleedm}}
-\caption{EDM screen for controlling syringe cycling}
+\caption{EDM screen for controlling syringe cycling.}
 \vspace{-1.2em}
 \end{center}
 \end{figure}
