@@ -180,7 +180,12 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
   \caption{Different stages of the cycling loop.}
 \end{figure}
 \begin{multicols}{2}
-    \lipsum[2]
+The cycling behaviour worked by creating a seperate thread for repeatedly sending commands to the syringes.
+    This command contained an instrument address and a pair of syringe speeds. The cycling thread would then
+    continuously send a cycling command to the instrument, wait for the instrument to report that it was idle
+     and then send the next command in the cycling list.
+    The central thread was able to detect when the `stop\_cycle` method had been called. This would flip a
+    switch and cause the cycling loop to exit.
 \end{multicols}
 \end{posterbox}
 
