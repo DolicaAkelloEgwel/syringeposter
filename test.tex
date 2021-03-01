@@ -88,7 +88,7 @@
 The existing streamDevice-based EPICS driver for the Hamilton Microlab 500/600 Syringe Pump was not
 especially suited to sending "complex" commands that contain two or more instructions.
 The driver also lacked the ability to reliably send simultaneous commands to both syringes, and to
-cycle sets of simultaneous commands indefinetly. The aim of this project was to create a user-friendly
+cycle sets of simultaneous commands indefinitely. The aim of this project was to create a user-friendly
 and extensible Python API that addresses these issues and enables users to easily create continuous flows
 through an electrochemical cell.
 \begin{figure}[H]
@@ -106,7 +106,7 @@ through an electrochemical cell.
     \item Make a Python library for controlling the Hamilton Microlab Syringe Pump
     \item Allow the library to be controlled with a command-line interface
     \item Add a cycling ability to allow the manipulation of continuous flows
-    \item Allow the syringe paramters to be controlled via EPICS
+    \item Allow the syringe parameters to be controlled via EPICS
     \item Create a graphical interface using EDM screens
 \end{itemize}
 \end{posterbox}
@@ -161,11 +161,11 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
         data = decoded_response.strip(ACK).strip(CR) or None
     return success, data
 \end{minted}
-    \caption{Extract from the \texttt{send\_receive} method, which is the resposible for sending command
+    \caption{Extract from the \texttt{send\_receive} method, which is the responsible for sending command
     strings to the device and decoding the reply.}
 \end{listing}
     \vspace{-1.2em}
-    The following tools were used for code quality/cleaniless: \texttt{black}, \texttt{flake8}, \texttt{mypy},
+    The following tools were used for code quality/cleanliness: \texttt{black}, \texttt{flake8}, \texttt{mypy},
     and \texttt{isort.}
 \end{posterbox}
 %----------------------------------------------------------------------------------------
@@ -180,7 +180,7 @@ def send_receive(self, request: str) -> Tuple[bool, Optional[str]]:
   \caption{Different stages of the cycling loop.}
 \end{figure}
 \begin{multicols}{2}
-The cycling behaviour worked by creating a seperate thread for repeatedly sending commands to the syringes.
+The cycling behaviour worked by creating a separate thread for repeatedly sending commands to the syringes.
     This command contained an instrument address and a pair of syringe speeds. The cycling thread would then
     continuously send a cycling command to the instrument, wait for the instrument to report that it was idle
      and then send the next command in the cycling list.
@@ -220,8 +220,8 @@ The cycling behaviour worked by creating a seperate thread for repeatedly sendin
 \begin{posterbox}[name=outcome,column=3,below=edmimage]{Outcome}
 The cycling behaviour was unable to run overnight without issue. However, some instrument error requests would
 give misleading information. The responsiveness of some of the information on the EDM screen was also
-    dependent on the number of information requests being sent to the device. To syringe positon and related
-    information were given their own seperate monitor loop to counteract this. While this created a bit of an
+    dependent on the number of information requests being sent to the device. To syringe position and related
+    information were given their own separate monitor loop to counteract this. While this created a bit of an
     improvement, syringe movements that were too fast would often get "missed" by the loop. 
 \end{posterbox}
 %----------------------------------------------------------------------------------------
@@ -232,7 +232,7 @@ give misleading information. The responsiveness of some of the information on th
     \item Write a simulation for the syringe pump
     \item Add a cleaning command to the library with a corresponding button on the EDM screen
     \item Allow the EDM screen to update immediately when the syringe volume is changed
-    \item Accomodate daisy-chaining multiple syringe pumps
+    \item Accommodate daisy-chaining multiple syringe pumps
 \end{itemize}
 \end{posterbox}
 
